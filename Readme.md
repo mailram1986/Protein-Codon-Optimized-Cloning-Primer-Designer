@@ -1,63 +1,59 @@
-Protein → Codon-Optimized Cloning & Primer Designer
+# Protein → Codon-Optimized Cloning & Primer Designer
 
-A local, open-source bioinformatics tool for converting protein sequences into codon-optimized DNA, designing cloning-ready primers using Primer3 thermodynamics, and exporting SnapGene and GenBank files with visualization.
+A **local, open-source bioinformatics application** that converts **protein sequences** into **codon-optimized DNA**, designs **cloning-ready primers using Primer3 thermodynamics**, and exports **SnapGene** and **GenBank** files with clear visualizations.
 
-This tool is intended for research labs, teaching practicals, and student projects, and avoids reliance on commercial software.
+This tool is suitable for **research laboratories**, **teaching practicals**, and **student projects**, and avoids dependence on commercial software.
 
-Features
+---
 
-Protein → DNA back-translation
+## ✨ Features
 
-Host-specific codon optimization
+- Protein → DNA **back-translation**
+- Host-specific **codon optimization**
+  - *Escherichia coli*
+  - *Saccharomyces cerevisiae*
+- **Primer design** using Primer3 (nearest-neighbor thermodynamics)
+- **Restriction cloning primers**
+  - NdeI, XhoI, EcoRI, BamHI
+- Optional sequence features:
+  - Signal peptide (PelB)
+  - C-terminal 6×His tag
+- **SnapGene-style linear visualization**
+- Export formats:
+  - SnapGene (`.dna`)
+  - GenBank (`.gb`)
+- Built-in **test dataset** for validation and teaching
+- Runs fully **offline** after installation
 
-Escherichia coli
+---
 
-Saccharomyces cerevisiae
-
-Primer design using Primer3 (nearest-neighbor thermodynamics)
-
-Restriction cloning primers (NdeI, XhoI, EcoRI, BamHI)
-
-Optional:
-
-Signal peptide (PelB)
-
-C-terminal 6×His tag
-
-SnapGene-style visualization
-
-Export formats:
-
-SnapGene (.dna)
-
-GenBank (.gb)
-
-Built-in test dataset for validation and teaching
-
-Runs fully offline after installation
-
-Project Structure
+## 📁 Project Structure
 protein_primer_app/
-├── app.py                 # Main Streamlit application
-├── run_app.py             # Desktop launcher (optional)
+├── app.py # Main Streamlit application
+├── run_app.py # Desktop launcher (optional)
 ├── core/
-│   ├── __init__.py
-│   ├── codon.py           # Codon back-translation
-│   ├── primer_design.py   # Primer3 integration
-│   ├── visualization.py   # SnapGene-like diagrams
-│   └── snapgene_export.py # SnapGene export
+│ ├── init.py
+│ ├── codon.py # Codon back-translation
+│ ├── primer_design.py # Primer3 integration
+│ ├── visualization.py # SnapGene-like diagrams
+│ └── snapgene_export.py # SnapGene export
 └── README.md
 
-Requirements
+---
 
-Python ≥ 3.8
+## 🧩 Requirements
 
-Works on Linux / Windows / macOS
+- Python **3.8 or higher**
+- Operating Systems:
+  - Linux
+  - Windows
+  - macOS
 
-System dependencies (Linux)
+### System dependency (Linux)
+```bash
 sudo apt install primer3
 
-Installation
+🚀 Installation
 1. Clone the repository
 git clone https://github.com/<your-username>/protein_primer_app.git
 cd protein_primer_app
@@ -67,7 +63,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 
-Windows:
+Windows
 
 venv\Scripts\activate
 
@@ -75,20 +71,21 @@ venv\Scripts\activate
 pip install --upgrade pip
 pip install streamlit biopython primer3-py dna-features-viewer matplotlib
 
-Running the Application
-Run as a local web app
+▶️ Running the Application
+
+Run the Streamlit app locally:
+
 streamlit run app.py
 
 
-The app will open at:
+The application will be available at:
 
 http://localhost:8501
 
-Usage Workflow
+🧪 Usage Workflow
 
-Paste a protein sequence (single-letter amino acid code)
-
-Or load a test dataset from the sidebar
+Paste a protein sequence (single-letter amino acid code), or
+load a test dataset from the sidebar
 
 Select:
 
@@ -108,71 +105,88 @@ Codon-optimized DNA
 
 Primer sequences and melting temperatures
 
-SnapGene-style diagram
+SnapGene-style visualization
 
 Download:
 
-.dna (SnapGene)
+insert.dna (SnapGene)
 
-.gb (GenBank)
+insert.gb (GenBank)
 
-Built-in Test Dataset
+🧫 Built-in Test Dataset
 
-The app includes example protein sequences to validate:
+The application includes predefined protein sequences to validate:
 
 Codon optimization
 
 Primer design
 
+Visualization
+
 Export functionality
 
-Use the sidebar to load test sequences.
+Use the sidebar menu to load test sequences instantly.
 
-Desktop Executable (Optional)
+🖥️ Desktop Executable (Optional)
 
-A desktop launcher can be created using PyInstaller.
+A desktop launcher can be built using PyInstaller.
 
-Build executable
+Build the executable
 pip install pyinstaller
 pyinstaller --onefile --noconsole --add-data "core:core" run_app.py
 
 
-The executable will be available in:
+The executable will be created in:
 
 dist/run_app
 
 
-Double-click to launch the app in your browser.
+Double-click to launch the application in your default browser.
 
-Scientific Notes & Limitations
+⚠️ Scientific Notes & Limitations
 
 Protein back-translation is non-unique; codon usage bias is applied.
 
-Primer designs are computational predictions and must be experimentally validated.
+All primers are computational predictions and must be experimentally validated.
 
-Signal peptide cleavage is not automatically predicted.
+Signal peptide cleavage sites are not automatically predicted.
 
-Restriction sites are added without frame enforcement (user responsibility).
+Restriction sites are added without automatic reading-frame enforcement.
 
-Intended Use
+🎯 Intended Use
 
 Molecular cloning design
 
-Wet-lab primer planning
+Primer planning for wet-lab experiments
 
-Teaching bioinformatics / biotechnology
+Biotechnology / bioinformatics teaching
 
-Internal lab tooling
+Internal laboratory workflows
 
-Student projects
+Student projects and demonstrations
 
-License
+📜 License
 
 This project is released under the MIT License.
-Free for academic, educational, and commercial use.
 
-Citation (Suggested)
+You are free to use, modify, and distribute this software for academic, educational, and commercial purposes.
 
-If you use this tool in teaching or research, please cite as:
+📖 Suggested Citation
 
-Protein → Codon-Optimized Cloning & Primer Designer, GitHub repository, YYYY.
+If you use this tool in teaching or research, please cite:
+
+Protein → Codon-Optimized Cloning & Primer Designer, GitHub repository, 2025.
+
+🔮 Future Extensions
+
+FEATURE annotations in GenBank (CDS, tags, signal peptides)
+
+In-silico ligation with vector backbones
+
+Reading-frame validation
+
+BLAST specificity screening
+
+Dockerized deployment
+
+CI/CD with GitHub Actions
