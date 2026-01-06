@@ -159,7 +159,7 @@ if st.button("Generate Cloning-Ready Primers"):
         dna_length=len(dna),
         forward_len=len(fwd),
         reverse_len=len(rev),
-        title="SnapGene-like Primer Binding Diagram"
+        title="Primer Binding Diagram"
     )
     st.pyplot(fig)
 
